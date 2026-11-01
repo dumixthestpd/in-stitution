@@ -1,0 +1,29 @@
+{
+  "name": "in-stitution",
+  "version": "0.11.2",
+  "private": true,
+  "description": "Configurable institutional sign-in framework for research publishers",
+  "scripts": {
+    "test": "node scripts/test.cjs",
+    "check": "node scripts/check.cjs",
+    "institution:new": "node scripts/new-institution.cjs",
+    "institution:build": "node scripts/build-institution.cjs",
+    "test:browser": "node scripts/browser-test.cjs",
+    "package": "node scripts/package.cjs",
+    "test:institutions": "node scripts/test-institutions.cjs",
+    "release:projects": "node scripts/release-projects.cjs",
+    "package:setup": "node scripts/package-setup.cjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dumixthestpd/in-stitution.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dumixthestpd/in-stitution/issues"
+  },
+  "homepage": "https://github.com/dumixthestpd/in-stitution#readme"
+}

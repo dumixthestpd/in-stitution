@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>in-stitution</title>
+  <link rel="stylesheet" href="popup.css">
+  <script src="institutions/registry.js" defer></script>
+  <script src="institutions/auth.js" defer></script>
+  <script src="institutions/manual.js" defer></script>
+  <script src="institutions/standard-cas.js" defer></script>
+  <script src="institutions/executable.js" defer></script>
+  <script src="institutions/catalog.js" defer></script>
+  <script src="core.js" defer></script>
+  <script src="integrations/reference-managers.js" defer></script>
+  <script src="popup.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="wordmark"><img class="brand-icon" src="icons/icon-128.png" width="28" height="28" alt="">in-stitution</div>
+    <span class="edition">RESEARCH ACCESS</span>
+  </header>
+  <main>
+    <div class="eyebrow"><span class="dot"></span> YOUR INSTITUTION</div>
+    <section class="institution" aria-label="Selected institution">
+      <div id="institution-monogram" class="monogram" aria-hidden="true">?</div>
+      <div><h1 id="institution-name">Your institution</h1><p id="institution-subtitle">Choose or add a profile</p><button id="change-institution" type="button" class="text-button">Change institution</button><button id="open-packs" type="button" class="text-button pack-link">＋ Install institution pack</button></div>
+      <span class="check" aria-label="Selected">✓</span>
+    </section>
+
+    <details id="institution-settings">
+      <summary><span>Institution profiles</span><span class="summary-icon" aria-hidden="true">＋</span></summary>
+      <div class="preferences-body">
+        <label for="institution-select">Saved institutions</label>
+        <select id="institution-select"></select>
+        <div class="form-actions"><button id="new-profile" type="button" class="text-button">Add institution</button><button id="remove-profile" type="button" class="text-button danger-button" hidden>Remove institution</button><span id="institution-presets"></span></div>
+        <p id="remove-profile-help" class="hint" hidden>Removes this institution and its saved login settings from this browser. Click again to confirm.</p>
+        <form id="profile-form">
+          <label for="profile-library">Authentication library</label><select id="profile-library"></select>
+          <label for="profile-name">Institution name</label>
+          <input id="profile-name" placeholder="University or research institution" maxlength="240" required>
+          <label for="profile-id">Profile ID</label>
+          <input id="profile-id" placeholder="my-university" pattern="[a-z][a-z0-9\-]{0,47}" maxlength="48" required>
+          <label for="profile-short-name">Short name</label>
+          <input id="profile-short-name" placeholder="Name shown on the sign-in button" maxlength="240">
+          <label for="profile-aliases">Other names (one per line)</label>
+          <textarea id="profile-aliases" rows="2" placeholder="Local-language name or an alternate spelling"></textarea>
+          <label for="profile-search">Institution search term</label>
+          <input id="profile-search" placeholder="Defaults to the institution name" maxlength="240">
+          <label for="profile-carsi">CARSI search term (optional)</label>
+          <input id="profile-carsi" placeholder="Local-language institution name" maxlength="240">
+          <label for="profile-federation">Federation name (optional)</label>
+          <input id="profile-federation" placeholder="As listed by the research provider" maxlength="240">
+          <label for="profile-entity">SAML entity ID (optional)</label>
+          <input id="profile-entity" type="url" placeholder="https://idp.example.edu/shibboleth">
+          <label for="profile-identity">University login origins (one per line)</label>
+          <textarea id="profile-identity" rows="2" placeholder="https://idp.example.edu"></textarea>
+          <label for="profile-discovery">Additional discovery origins (optional)</label>
+          <textarea id="profile-discovery" rows="2" placeholder="https://discovery.example.edu"></textarea>
+          <label for="profile-cas">CAS login URL (optional)</label>
+          <input id="profile-cas" type="url" placeholder="https://login.example.edu/cas/login">
+          <label for="profile-services">Allowed CAS service prefixes (one per line)</label>
+          <textarea id="profile-services" rows="2" placeholder="https://idp.example.edu/idp/"></textarea>
+          <p class="hint">Name and aliases are enough for institution discovery. Other login methods use your normal university sign-in. Saving requests access only to the exact custom hosts entered above.</p>
+          <div class="form-actions"><button type="submit" class="secondary">Save and use institution</button></div>
+        </form>
+        <div class="form-actions"><button id="export-profile" type="button" class="text-button">Export profile JSON</button><label class="text-button import-label" for="import-profile">Import profile JSON</label><input id="import-profile" type="file" accept="application/json,.json" hidden></div>
+        <p class="hint">Shared profiles contain configuration only. Imported profiles fill this editor for review; save to activate them.</p>
+      </div>
+    </details>
+
+    <section class="access-card" aria-labelledby="access-title">
+      <div class="card-top"><span class="eyebrow">CURRENT PAGE</span><span id="availability" class="tag">CHECKING</span></div>
+      <h2 id="access-title">Finding your research site…</h2>
+      <p id="site-description">Sign in through your university, wherever research takes you.</p>
+      <button id="start" class="primary" disabled><span id="start-label">Continue with your institution</span><span aria-hidden="true">↗</span></button>
+      <button id="stop" class="secondary" hidden>Stop sign-in helper</button>
+      <p id="status" class="status" role="status" aria-live="polite">Checking this page…</p>
+    </section>
+
+    <section class="manager-panel" aria-label="Reference manager">
+      <label for="reference-manager">Save articles with</label>
+      <select id="reference-manager"></select>
+      <p id="manager-guidance" class="hint" role="status"></p>
+    </section>
+
+    <details id="preferences">
+      <summary><span>Sign-in preferences</span><span class="summary-icon" aria-hidden="true">＋</span></summary>
+      <div class="preferences-body">
+        <label class="switch-row"><span><strong>Start automatically on research sites</strong><small>Use this institution without opening the extension each time. Stop pauses the current tab.</small></span><input id="auto-start" type="checkbox" role="switch"></label>
+        <div id="legacy-auth-settings">
+        <label class="switch-row"><span><strong>Submit university login</strong><small>Use saved credentials once per sign-in.</small></span><input id="auto-submit" type="checkbox" role="switch"></label>
+        <label class="switch-row"><span><strong>Continue attribute release</strong><small>Allow the university consent step automatically.</small></span><input id="auto-consent" type="checkbox" role="switch"></label>
+        <label class="switch-row"><span><strong>Use compatibility mode</strong><small>Use the full page-based login sequence instead of direct sign-in routes.</small></span><input id="browser-only" type="checkbox" role="switch"></label>
+        <div class="credentials-heading"><strong>University credentials</strong><span id="credential-state">Not saved</span></div>
+        <p id="credential-help" class="hint">Optional CAS credentials are stored separately for each institution, only on this browser. Other login methods use your password manager. No extension-level encryption.</p>
+        <form id="credentials-form" autocomplete="off">
+          <label for="username">University username</label>
+          <input id="username" name="username" type="text" placeholder="Student / staff ID" autocomplete="off" maxlength="200" required>
+          <label for="password">CAS password</label>
+          <input id="password" name="password" type="password" placeholder="Enter to save or replace" autocomplete="new-password" maxlength="1000" required>
+          <div class="form-actions"><button id="save-credentials" type="submit" class="secondary">Save locally</button><button id="clear-credentials" type="button" class="text-button">Forget credentials</button></div>
+        </form>
+        <label for="import-credentials" class="text-button import-label">Import local credentials file</label>
+        <input id="import-credentials" type="file" accept=".txt,.json,text/plain,application/json" hidden>
+        <p class="hint">Import username:password or JSON once. Contents stay in this browser; the original file is unchanged. Import again if its password changes.</p>
+        </div>
+        <button id="configure-pack" type="button" class="secondary" hidden>Configure institution</button>
+      </div>
+    </details>
+
+    <details class="providers">
+      <summary><span>Research sites</span><span class="count">10</span></summary>
+      <p class="hint">Open a site, then continue with your institution. Availability depends on your library’s subscriptions.</p>
+      <div id="provider-list" class="provider-list"></div>
+    </details>
+    <p id="feedback" class="feedback" role="status" aria-live="polite"></p>
+  </main>
+  <footer><span class="footer-icon" aria-hidden="true">⌑</span> Your browser. Your university. Your research.</footer>
+</body>
+</html>

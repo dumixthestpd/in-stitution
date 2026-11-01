@@ -1,0 +1,4 @@
+body { font: 15px system-ui, sans-serif; color: #18382e; padding: 12px; }
+label { display: block; margin-top: 16px; }
+input, select { box-sizing: border-box; width: 100%; padding: 9px; margin-top: 5px; border: 1px solid #becfc7; border-radius: 6px; }
+p { line-height: 1.5; color: #52665d; }

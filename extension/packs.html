@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Institution packs · in-stitution</title>
+  <link rel="stylesheet" href="packs.css">
+  <script src="pack-archive.js" defer></script>
+  <script src="pack-settings.js" defer></script>
+  <script src="pack-manager.js" defer></script>
+</head>
+<body>
+  <main>
+    <header><span class="wordmark"><img class="brand-icon" src="icons/icon-128.png" width="28" height="28" alt="">in-stitution</span><span class="edition">INSTITUTION PACKS</span></header>
+    <h1>Bring your institution.</h1>
+    <p class="intro">Install your institution’s own login adapter, including its code and settings, then use your usual university account.</p>
+    <section id="pack-drop" class="drop-zone" aria-label="Drop an institution pack">
+      <span class="drop-mark" aria-hidden="true">↓</span>
+      <h2>Drop your institution pack here</h2>
+      <p>A <strong>.instpack</strong> archive from your institution’s maintainer.</p>
+      <button id="choose-pack" class="button" type="button">Choose a pack file</button>
+      <input id="pack-file" type="file" accept=".instpack,.zip,.institution.json,.json,application/zip,application/json" hidden>
+      <p class="muted">Review its details before allowing access to login sites.</p>
+    </section>
+    <p id="pack-feedback" class="feedback" role="status" aria-live="polite"></p>
+    <section id="pack-review" class="card" aria-labelledby="review-name" hidden>
+      <div class="eyebrow">READY TO INSTALL</div>
+      <h2 id="review-name"></h2>
+      <p id="review-description"></p>
+      <dl><dt>Pack version</dt><dd id="review-version"></dd><dt>Provided by</dt><dd id="review-maintainer"></dd><dt>Sign-in method</dt><dd id="review-engine"></dd></dl>
+      <p class="muted">The maintainer name is supplied by the file; it is not an identity verification.</p>
+      <h3>Login sites this pack needs</h3>
+      <ul id="review-origins"></ul>
+      <p id="review-executable" hidden>This pack includes executable code that can read and change pages on these sites. Install adapters only from maintainers you trust. Its code runs separately from the extension’s stored credentials and settings.</p>
+      <details id="review-source" hidden><summary>View adapter source</summary><pre id="review-code"></pre></details>
+      <section id="runtime-help" hidden><h3>Allow institution adapters</h3><p>In this extension’s browser Details, enable <strong>Allow User Scripts</strong> (Developer mode on older Chrome), then return and check again. This browser setting is needed once for executable packs.</p><div class="actions"><button id="runtime-settings" type="button" class="secondary">Open extension settings</button><button id="runtime-check" type="button" class="secondary">Check again</button></div></section>
+      <p id="review-replacement"></p>
+      <p id="review-account">Installation selects this institution. Configure automatic sign-in separately in the extension.</p>
+      <div class="actions"><button id="install-pack" type="button" class="button">Install institution</button><button id="cancel-pack" type="button" class="secondary">Cancel</button></div>
+    </section>
+    <section id="pack-configuration" class="card" hidden>
+      <div class="eyebrow">INSTITUTION SETUP</div>
+      <h2 id="settings-name"></h2>
+      <p class="muted">This screen comes from your institution pack. Its settings stay on this browser and are available to this pack during sign-in. They are excluded from exported packs. No extension-level encryption.</p>
+      <div id="settings-frame-host"></div>
+      <p id="settings-feedback" role="status" aria-live="polite"></p>
+      <div class="actions"><button id="save-pack-settings" class="button" type="button">Save institution settings</button><button id="cancel-pack-settings" class="secondary" type="button">Close</button></div>
+    </section>
+    <section aria-labelledby="saved-title">
+      <h2 id="saved-title">Your institutions</h2>
+      <p class="muted">Export the complete adapter to share it. Stored passwords and automatic sign-in choices stay in your browser.</p>
+      <div id="installed-packs" class="saved-list"></div>
+    </section>
+    <footer>Executable packs carry the institution’s own JavaScript and supporting files. Existing settings-only JSON packs remain supported. Saving articles stays with Zotero Connector or EndNote Click.</footer>
+  </main>
+</body>
+</html>

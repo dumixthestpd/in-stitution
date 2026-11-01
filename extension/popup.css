@@ -1,0 +1,81 @@
+:root{color-scheme:light;--ink:#183c31;--muted:#64766e;--green:#176748;--line:#dce4dd;--paper:#f6f7f2;font-family:Inter,"Segoe UI",Arial,sans-serif;font-size:13px}
+*{box-sizing:border-box}
+body{width:390px;margin:0;background:var(--paper);color:var(--ink)}
+button,input,summary,a{-webkit-tap-highlight-color:transparent}
+button,input,select,textarea{font:inherit}
+button,a,summary{touch-action:manipulation}
+button{cursor:pointer;transition:background .15s,opacity .15s}
+button:disabled{cursor:default;opacity:.5}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible,a:focus-visible{outline:2px solid #1d8661;outline-offset:3px}
+header{height:75px;padding:0 23px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+.wordmark{display:flex;align-items:center;gap:10px;font-size:20px;font-weight:650;letter-spacing:-.8px}
+.mark{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border:1px solid #346d53;border-radius:9px;font-size:17px;letter-spacing:-1px;background:#eaf0e8}
+.mark span{font-size:14px;align-self:flex-start;margin-top:4px}
+.edition{font-size:8px;letter-spacing:1.3px;color:#65796c;font-weight:600}
+main{padding:25px 23px 8px}
+.eyebrow{font-size:9px;letter-spacing:1.4px;font-weight:650;color:var(--muted);display:flex;align-items:center;gap:7px}
+.dot{width:5px;height:5px;border-radius:50%;background:#42885f}
+.institution{display:flex;gap:12px;align-items:center;margin:17px 0 25px}
+.monogram{display:grid;place-items:center;flex:0 0 39px;height:43px;background:#e9eee1;border:1px solid #d4ddc9;border-radius:10px;font-family:Georgia,serif;font-size:29px;color:#516b3d}
+h1{font-size:13px;line-height:1.5;font-weight:650;margin:0}
+.institution>div:nth-child(2){min-width:0;flex:1}h1,.institution p{overflow-wrap:anywhere}
+.institution .text-button{padding:5px 0 0;font-size:10px}
+.institution p{font-size:10px;color:#6b7b70;margin:5px 0 0;letter-spacing:.5px}
+.institution p span{letter-spacing:0}
+.check{display:grid;place-items:center;width:18px;height:18px;border-radius:50%;background:#e2eddf;color:#41805a;font-size:11px;margin-left:auto}
+.access-card{padding:18px;background:#fff;border:1px solid var(--line);border-radius:13px;box-shadow:0 3px 6px #233e2910}
+.card-top{display:flex;justify-content:space-between;align-items:center}
+.tag{padding:4px 6px;border-radius:4px;font-size:8px;font-weight:650;letter-spacing:.6px;color:#56765e;background:#edf3e9}
+.tag.unsupported{background:#f5f0e5;color:#8a7347}
+h2{font-size:20px;line-height:1.25;letter-spacing:-.6px;margin:18px 0 9px;font-weight:600}
+#site-description{font-size:12px;line-height:1.7;margin:0 0 19px;color:var(--muted)}
+.primary{display:flex;align-items:center;justify-content:space-between;width:100%;padding:13px 14px;background:var(--green);border:1px solid var(--green);border-radius:7px;color:white;font-weight:550;font-size:12px}
+.primary:hover:enabled{background:#10573b}
+.primary>span:last-child{font-size:18px;line-height:1}
+#start-label{font-size:12px;line-height:1.5;text-align:left;overflow-wrap:anywhere}
+.secondary{padding:9px 12px;color:var(--ink);background:#f4f7f1;border:1px solid #d1dfd0;border-radius:6px;font-size:11px;font-weight:550}
+.secondary:hover{background:#e8f0e4}
+#stop{width:100%;margin-top:9px}
+.status{font-size:10px;line-height:1.6;margin:11px 0 0;color:#718276;min-height:16px}
+.manager-panel{margin-top:16px;padding:15px 0 0;border-bottom:1px solid var(--line)}
+.manager-panel>label{display:block;font-size:11px;font-weight:550;margin-bottom:8px}
+details{border-bottom:1px solid var(--line)}
+summary{padding:18px 1px;display:flex;align-items:center;justify-content:space-between;list-style:none;cursor:pointer;font-size:12px;font-weight:550}
+summary::-webkit-details-marker{display:none}
+.summary-icon{color:#7c8e7f;font-size:16px;font-weight:400}
+details[open] .summary-icon{transform:rotate(45deg)}
+.preferences-body{padding:0 1px 18px}
+.switch-row{display:flex;align-items:center;justify-content:space-between;gap:13px;margin:0 0 17px;cursor:pointer}
+.switch-row strong{font-size:11px;font-weight:550}
+small{display:block;font-size:10px;line-height:1.5;color:var(--muted);margin-top:4px}
+.switch-row input{appearance:none;width:29px;height:17px;flex:0 0 29px;background:#d6ded3;border-radius:20px;position:relative;cursor:pointer;margin:0}
+.switch-row input::after{content:"";position:absolute;top:3px;left:3px;height:11px;width:11px;background:white;border-radius:50%;transition:transform .15s}
+.switch-row input:checked{background:var(--green)}
+.switch-row input:checked::after{transform:translateX(12px)}
+.credentials-heading{display:flex;justify-content:space-between;font-size:11px;padding-top:14px;border-top:1px solid var(--line)}
+.credentials-heading strong{font-weight:550}
+#credential-state{font-size:10px;color:var(--muted)}
+.hint{font-size:10px;line-height:1.7;color:var(--muted);margin:10px 0 13px}
+form label{display:block;font-size:10px;margin:11px 0 6px;font-weight:550}
+form input,select,textarea{width:100%;padding:10px 11px;border:1px solid #ccd8cc;border-radius:6px;background:white;color:var(--ink);font-size:12px;min-width:0}
+textarea{resize:vertical}
+#institution-settings .preferences-body>label{display:block;font-size:10px;margin-bottom:6px}
+.import-label{cursor:pointer}
+input::placeholder{color:#8a978d}
+.form-actions{display:flex;align-items:center;justify-content:space-between;margin-top:12px}
+.text-button{background:none;border:0;color:#64776a;font-size:10px;padding:8px 0}
+.text-button:hover{color:var(--green)}
+.pack-link{display:block;color:var(--green);font-weight:600;padding-top:0}
+.count{font-size:9px;border:1px solid #d3dece;padding:2px 6px;border-radius:4px;color:#75816f}
+.providers .hint{margin-top:0}
+.provider-list{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:18px}
+.provider-list a{text-decoration:none;color:#42624e;border:1px solid #dbe4d5;border-radius:5px;padding:9px 8px;font-size:10px;line-height:1.4;background:#fff}
+.provider-list a:hover{border-color:#97b699;background:#f0f5eb}
+.feedback{font-size:11px;line-height:1.5;color:#366849;margin:10px 0;min-height:0}
+.feedback.error{color:#9a442d}
+footer{padding:13px 23px 17px;color:#8a9587;font-size:9px;display:flex;gap:7px;align-items:center}
+.footer-icon{font-size:15px;color:#6d866d}
+[hidden]{display:none!important}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+.danger-button{color:#9a442d}
+.brand-icon{width:28px;height:28px;display:block}

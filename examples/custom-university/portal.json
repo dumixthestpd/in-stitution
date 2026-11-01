@@ -1,0 +1,7 @@
+{
+  "entry": "/portal/start",
+  "choice": "/tenant/choose",
+  "ready": "/library/ready",
+  "sessionApi": "https://api.example.edu/session",
+  "returnUrl": "https://pubs.rsc.org/article/pack-return"
+}

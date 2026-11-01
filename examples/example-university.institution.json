@@ -1,0 +1,21 @@
+{
+  "format": "in-stitution/institution-pack",
+  "formatVersion": 1,
+  "id": "example-university",
+  "version": "1.0.0",
+  "maintainer": "Example maintainer (fictional)",
+  "description": "Fictional example. Replace these settings with your institution's verified configuration before sharing.",
+  "institution": {
+    "id": "example-university",
+    "library": "manual",
+    "name": "Example University",
+    "shortName": "Example U",
+    "aliases": [],
+    "searchTerm": "Example University",
+    "federation": "",
+    "entityId": "",
+    "identityOrigins": ["https://login.example.edu"],
+    "discoveryOrigins": [],
+    "cas": null
+  }
+}

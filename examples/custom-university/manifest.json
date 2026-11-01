@@ -1,0 +1,23 @@
+{
+  "format": "in-stitution/institution-pack",
+  "formatVersion": 2,
+  "id": "custom-university",
+  "version": "1.0.0",
+  "maintainer": "Example maintainer (fictional)",
+  "description": "Fictional non-CAS portal with account choice and a session API. Replace its code and hosts with your institution's verified flow.",
+  "institution": {
+    "id": "custom-university",
+    "library": "executable-pack",
+    "name": "Custom University",
+    "shortName": "Custom U",
+    "identityOrigins": ["https://login.example.edu"],
+    "cas": null
+  },
+  "adapter": {
+    "apiVersion": 2,
+    "scripts": ["adapter.js"],
+    "resources": ["portal.json", "settings.html", "settings.js", "settings.css"],
+    "settings": { "html": "settings.html", "scripts": ["settings.js"], "styles": ["settings.css"] },
+    "networkOrigins": ["https://api.example.edu"]
+  }
+}
